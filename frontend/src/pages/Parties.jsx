@@ -233,60 +233,58 @@ const Parties = () => {
       {/* Main Table Container */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden">
         
-        {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col min-h-0">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-auto custom-scrollbar">
           
           {/* Search & Filters */}
-          <div className="p-4 border-b border-gray-100 flex flex-col gap-4 shrink-0">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-              <Search className="w-4 h-4 text-gray-400" />
+          <div className="p-4 border-b border-gray-100 flex flex-col gap-4 shrink-0 bg-white">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <Search className="w-4 h-4 text-gray-400" />
+              </div>
+              <input 
+                type="text" 
+                placeholder="Search name, phone, GSTIN, city..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full bg-white border border-gray-200 rounded-lg py-2.5 pl-9 pr-4 text-[13px] font-medium focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+              />
             </div>
-            <input 
-              type="text" 
-              placeholder="Search name, phone, GSTIN, city..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-gray-200 rounded-lg py-2.5 pl-9 pr-4 text-[13px] font-medium focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
-            />
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
-              Type <span className="font-bold text-gray-900">All Types</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
-            </button>
-            <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
-              State <span className="font-bold text-gray-900">All States</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
-            </button>
-            <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
-              Status <span className="font-bold text-gray-900">All Status</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
-            </button>
             
-            <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-semibold hover:bg-gray-50 flex items-center gap-2 ml-1">
-              <Filter className="w-3.5 h-3.5 text-gray-500" /> Filters
-            </button>
-            
-            <button onClick={() => setSearchQuery('')} className="text-indigo-600 font-semibold text-[13px] hover:text-indigo-700 ml-2">
-              Clear
-            </button>
+            <div className="flex items-center gap-3">
+              <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                Type <span className="font-bold text-gray-900">All Types</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+              </button>
+              <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                State <span className="font-bold text-gray-900">All States</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+              </button>
+              <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-medium hover:bg-gray-50 flex items-center gap-2">
+                Status <span className="font-bold text-gray-900">All Status</span> <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+              </button>
+              
+              <button className="bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-lg text-[13px] font-semibold hover:bg-gray-50 flex items-center gap-2 ml-1">
+                <Filter className="w-3.5 h-3.5 text-gray-500" /> Filters
+              </button>
+              
+              <button onClick={() => setSearchQuery('')} className="text-indigo-600 font-semibold text-[13px] hover:text-indigo-700 ml-2">
+                Clear
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 pt-1">
+              <div className="flex items-center gap-1.5 bg-gray-100 rounded-md px-2.5 py-1 text-[12px] font-medium text-gray-600">
+                Status: Active
+                <button className="text-gray-400 hover:text-gray-700"><X className="w-3 h-3" /></button>
+              </div>
+              <div className="flex items-center gap-1.5 bg-gray-100 rounded-md px-2.5 py-1 text-[12px] font-medium text-gray-600">
+                Type: Customer & Supplier
+                <button className="text-gray-400 hover:text-gray-700"><X className="w-3 h-3" /></button>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2 pt-1">
-            <div className="flex items-center gap-1.5 bg-gray-100 rounded-md px-2.5 py-1 text-[12px] font-medium text-gray-600">
-              Status: Active
-              <button className="text-gray-400 hover:text-gray-700"><X className="w-3 h-3" /></button>
-            </div>
-            <div className="flex items-center gap-1.5 bg-gray-100 rounded-md px-2.5 py-1 text-[12px] font-medium text-gray-600">
-              Type: Customer & Supplier
-              <button className="text-gray-400 hover:text-gray-700"><X className="w-3 h-3" /></button>
-            </div>
-          </div>
-          </div>
-
-          {/* Table Content */}
-          <div className="w-full overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[1200px]">
-            <thead className="sticky top-0 bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
+          <table className="w-full text-left border-collapse min-w-[1200px]">
+            <thead className="bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
               <tr>
                 <th className="py-3 px-4 w-12 border-b border-gray-100">
                   <input type="checkbox" checked={selectedIds.length > 0 && selectedIds.length === filteredParties.length} onChange={toggleSelectAll} className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 w-4 h-4 cursor-pointer" />
@@ -372,8 +370,7 @@ const Parties = () => {
                 ))
               )}
             </tbody>
-            </table>
-          </div>
+          </table>
         </div>
         
         {/* Pagination */}
