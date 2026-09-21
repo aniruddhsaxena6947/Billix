@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Users, UserPlus, FileText, CreditCard, ShoppingCart, Download,
   MoreVertical, Search, Filter, ChevronDown, ChevronLeft, ChevronRight, X,
-  User, Check, Upload
+  User, Check, Upload, Printer, Share2, Tag, Trash2
 } from 'lucide-react';
 
 // --- MOCK DATA ---
@@ -231,8 +231,39 @@ const Parties = () => {
       </div>
 
       {/* Main Table Container */}
-      <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden">
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden relative">
         
+        {/* Bulk Action Floating Bar */}
+        {selectedIds.length > 0 && (
+          <div className="absolute top-0 left-0 right-0 bg-white border-b border-gray-200 p-3.5 z-20 flex items-center justify-between animate-fade-in-up">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg text-[13px] font-bold">
+                <Check className="w-4 h-4" /> {selectedIds.length} selected
+              </div>
+              <div className="flex items-center gap-2 border-l border-gray-200 pl-4">
+                <button className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-700 hover:text-gray-900 px-2 py-1 hover:bg-gray-50 rounded">
+                  <Download className="w-4 h-4 text-gray-500" /> Export
+                </button>
+                <button className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-700 hover:text-gray-900 px-2 py-1 hover:bg-gray-50 rounded">
+                  <Printer className="w-4 h-4 text-gray-500" /> Print
+                </button>
+                <button className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-700 hover:text-gray-900 px-2 py-1 hover:bg-gray-50 rounded">
+                  <Share2 className="w-4 h-4 text-gray-500" /> Share
+                </button>
+                <button className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-700 hover:text-gray-900 px-2 py-1 hover:bg-gray-50 rounded">
+                  <Tag className="w-4 h-4 text-gray-500" /> Mark Status
+                </button>
+                <button className="flex items-center gap-1.5 text-[13px] font-bold text-red-600 hover:text-red-700 px-2 py-1 hover:bg-red-50 rounded ml-1">
+                  <Trash2 className="w-4 h-4" /> Delete
+                </button>
+              </div>
+            </div>
+            <button onClick={() => setSelectedIds([])} className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+
         {/* Scrollable Content Area */}
         <div className="flex-1 overflow-auto custom-scrollbar">
           

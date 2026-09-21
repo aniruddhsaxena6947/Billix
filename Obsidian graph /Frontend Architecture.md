@@ -87,6 +87,7 @@ Based on the provided references in `UI Refrences/` (specifically `INVOXENX — 
   - **Tabs Navigation**: Local tabs (`All Parties`, `Customers`, `Suppliers`) instantly filter the dataset. Parties with the "Both" role correctly appear in both lists.
   - **Custom KPI Cards**: Employs a custom layout to accurately replicate the reference's distinct left-aligned, square-boxed icons.
   - **Table (Dual Badges)**: The `Type` column handles vertical stacking of the Customer (green) and Supplier (purple) badges when a party holds both roles, exactly as specified by the design.
+  - **Selection Bar**: A dynamic floating action bar appears natively over the table when rows are selected, permitting bulk mock actions (Export, Print, Share, Mark Status, Delete), mirroring the design found in Purchase Documents.
   - **Add Party Modal**: A lightweight frontend form capable of creating parties with single or dual roles, seamlessly updating the unified workspace.
 - **Sidebar Integration**: Integrated as a main navigation `<NavLink>` matching the "Dashboard" pattern, reflecting its status as a top-level standalone module.
 
