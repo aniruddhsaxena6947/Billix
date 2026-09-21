@@ -129,9 +129,12 @@ const GeneralLedger = () => {
       {/* Main Table Container */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden relative">
         
-        {/* Search & Filters */}
-        <div className="p-4 border-b border-gray-100 flex flex-col gap-3 shrink-0">
-          <div className="flex items-center gap-3 w-full">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-auto custom-scrollbar relative">
+          
+          {/* Search & Filters */}
+          <div className="p-4 border-b border-gray-100 flex flex-col gap-3 shrink-0 bg-white">
+            <div className="flex items-center gap-3 w-full">
             <div className="relative flex-1">
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <Search className="w-4 h-4 text-gray-400" />
@@ -171,9 +174,8 @@ const GeneralLedger = () => {
         </div>
 
         {/* Table Content */}
-        <div className="flex-1 overflow-auto custom-scrollbar relative">
-          <table className="w-full text-left border-collapse min-w-[1200px]">
-            <thead className="sticky top-0 bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
+        <table className="w-full text-left border-collapse min-w-[1200px]">
+          <thead className="bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
               <tr>
                 <th className="py-3 px-5 text-[11px] font-bold text-gray-500 bg-white border-b border-gray-100 tracking-wider">
                   <div className="flex items-center gap-1">DATE <span className="flex flex-col"><ChevronDown className="w-2.5 h-2.5 rotate-180 -mb-1"/><ChevronDown className="w-2.5 h-2.5"/></span></div>

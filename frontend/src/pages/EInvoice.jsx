@@ -160,8 +160,11 @@ const EInvoice = () => {
 
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col flex-1 min-h-0 overflow-hidden">
         
-        {/* Search and Filters */}
-        <div className="p-4 border-b border-gray-100 flex items-center justify-between gap-4 shrink-0">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-auto custom-scrollbar relative">
+
+          {/* Search and Filters */}
+          <div className="p-4 border-b border-gray-100 flex items-center justify-between gap-4 shrink-0 bg-white">
           <div className="relative flex-1 max-w-[400px]">
             <input 
               type="text" 
@@ -213,9 +216,8 @@ const EInvoice = () => {
         </div>
 
         {/* Table Area */}
-        <div className="flex-1 overflow-auto">
-          <table className="w-full text-left border-collapse">
-            <thead className="sticky top-0 bg-white shadow-sm shadow-gray-100 z-10">
+        <table className="w-full text-left border-collapse">
+          <thead className="bg-white shadow-sm shadow-gray-100 z-10">
               <tr className="border-b border-gray-200">
                 <th className="py-3 px-5 w-[40px]">
                   <input type="checkbox" className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />

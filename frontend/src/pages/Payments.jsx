@@ -250,8 +250,11 @@ const Payments = () => {
       {/* Main Container */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden relative">
         
-        {/* Search & Filters Inside Main */}
-        <div className="p-4 border-b border-gray-100 flex items-center justify-between shrink-0">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 overflow-auto custom-scrollbar relative">
+          
+          {/* Search & Filters Inside Main */}
+          <div className="p-4 border-b border-gray-100 flex items-center justify-between shrink-0 bg-white">
           <div className="relative w-full max-w-[500px]">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
               <Search className="w-4 h-4 text-gray-400" />
@@ -297,9 +300,8 @@ const Payments = () => {
         </div>
 
         {/* Table Content */}
-        <div className="flex-1 overflow-auto custom-scrollbar relative">
-          <table className="w-full text-left border-collapse min-w-[1200px]">
-            <thead className="sticky top-0 bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
+        <table className="w-full text-left border-collapse min-w-[1200px]">
+          <thead className="bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
               <tr>
                 <th className="py-3 px-4 w-12 border-b border-gray-100">
                   <input type="checkbox" checked={selectedIds.length > 0 && selectedIds.length === filteredPayments.length} onChange={toggleSelectAll} className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 w-4 h-4 cursor-pointer" />
