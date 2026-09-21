@@ -145,8 +145,11 @@ const PosBilling = () => {
             </div>
           </div>
 
-          {/* Search & Scan */}
-          <div className="flex items-center gap-3 mb-4">
+          {/* Product Workspace Scroll Container */}
+          <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col pr-1 pb-2">
+            
+            {/* Search & Scan */}
+            <div className="flex items-center gap-3 mb-4 shrink-0">
             <div className="relative flex-1">
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <Search className="w-4 h-4 text-gray-400" />
@@ -171,7 +174,7 @@ const PosBilling = () => {
           </div>
 
           {/* Categories */}
-          <div className="flex flex-wrap gap-2 mb-5">
+          <div className="flex flex-wrap gap-2 mb-5 shrink-0">
             {categories.map(cat => (
               <button 
                 key={cat}
@@ -188,7 +191,7 @@ const PosBilling = () => {
           </div>
 
           {/* Product Grid */}
-          <div className="flex-1 overflow-y-auto pb-4 pr-2 custom-scrollbar">
+          <div className="flex-1 shrink-0 pb-4">
             <div className="grid grid-cols-4 gap-4">
               {filteredProducts.map(product => {
                 const inCart = cart.find(item => item.id === product.id);
@@ -265,13 +268,14 @@ const PosBilling = () => {
               </button>
             </div>
           </div>
+          </div>
         </div>
 
         {/* Right Section - Current Bill */}
-        <div className="w-[480px] bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col overflow-y-auto shrink-0 transition-all custom-scrollbar">
+        <div className="w-[380px] bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col overflow-y-auto shrink-0 transition-all custom-scrollbar">
           
           {/* Bill Header */}
-          <div className="p-4 border-b border-gray-100">
+          <div className="p-4 border-b border-gray-100 shrink-0">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-[17px] font-bold text-gray-900 tracking-tight">Current Bill</h2>
               <div className="flex items-center gap-2">
@@ -296,7 +300,7 @@ const PosBilling = () => {
           </div>
 
           {/* Cart Table Header */}
-          <div className="grid grid-cols-[1fr_60px_80px_70px_24px] gap-2 px-4 py-2 border-b border-gray-100 bg-gray-50 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          <div className="grid grid-cols-[1fr_60px_80px_70px_24px] gap-2 px-4 py-2 border-b border-gray-100 bg-gray-50 text-[10px] font-bold text-gray-500 uppercase tracking-wider shrink-0">
             <div>Item</div>
             <div className="text-right">Price</div>
             <div className="text-center">Qty</div>
@@ -305,7 +309,7 @@ const PosBilling = () => {
           </div>
 
           {/* Cart Items */}
-          <div className="flex-1 overflow-y-auto p-2 custom-scrollbar min-h-[200px]">
+          <div className="flex-1 overflow-y-auto p-2 custom-scrollbar min-h-[160px]">
             {cart.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-gray-400">
                 <FileText className="w-12 h-12 mb-3 opacity-20" />
@@ -341,8 +345,8 @@ const PosBilling = () => {
           </div>
 
           {/* Totals Section */}
-          <div className="p-3 border-t border-gray-100 bg-gray-50/50">
-            <div className="space-y-1 text-[13px]">
+          <div className="p-4 border-t border-gray-100 bg-gray-50/50 shrink-0">
+            <div className="space-y-1.5 text-[13px]">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
                 <span className="font-semibold text-gray-900">₹{subtotal.toFixed(2)}</span>
@@ -365,14 +369,14 @@ const PosBilling = () => {
               </div>
             </div>
             
-            <div className="flex justify-between items-end mt-1.5 mb-2">
+            <div className="flex justify-between items-end mt-3 mb-4">
               <span className="text-[15px] font-bold text-gray-900 uppercase tracking-tight">Total</span>
               <span className="text-[24px] font-bold text-indigo-600 leading-none">₹{grandTotal.toFixed(2)}</span>
             </div>
 
             {/* Payment Methods */}
-            <div className="mb-3">
-              <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">Payment Method</div>
+            <div className="mb-4">
+              <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-2">Payment Method</div>
               <div className="flex flex-wrap gap-1.5">
                 {['Cash', 'UPI', 'Card', 'Bank Transfer', 'Credit / Due', 'Split Payment'].map(method => (
                   <button 
@@ -391,7 +395,7 @@ const PosBilling = () => {
             </div>
 
             {/* Inputs & Action */}
-            <div className="grid grid-cols-2 gap-3 mb-3">
+            <div className="grid grid-cols-2 gap-3 mb-4">
               <div>
                 <label className="block text-[11px] font-bold text-gray-500 mb-1 tracking-wide">Amount Received</label>
                 <div className="relative">
@@ -422,7 +426,7 @@ const PosBilling = () => {
             <button 
               onClick={handleCreateBill}
               disabled={cart.length === 0}
-              className={`w-full py-2.5 rounded-lg text-[14px] font-bold flex items-center justify-center gap-2 transition-colors shadow-sm mb-2.5 ${
+              className={`w-full py-2.5 rounded-lg text-[14px] font-bold flex items-center justify-center gap-2 transition-colors shadow-sm mb-3 ${
                 cart.length > 0 
                   ? 'bg-indigo-600 text-white hover:bg-indigo-700' 
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'

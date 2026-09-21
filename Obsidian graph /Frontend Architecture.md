@@ -56,8 +56,8 @@ Based on the provided references in `UI Refrences/` (specifically `INVOXENX — 
 ## POS Billing Implementation
 - **Route**: `/sales-billing/pos` (`src/pages/PosBilling.jsx`)
 - **Structure (Two-Column Layout)**:
-  - **Left Section (Products)**: Implements a product grid with category filtering, a search bar (with Scan Barcode action), and customer selection. Products visually update when added or out of stock.
-  - **Right Section (Current Bill)**: An always-visible cart panel detailing items, quantities, subtotal, discount, GST, and final totals. It also houses multiple payment method selectors and amount received calculation displays.
+  - **Left Section (Products)**: Implements a unified product workspace. The Search bar, Category filters, Product Grid, and Pagination are grouped inside a single vertical scroll container so they scroll together naturally, preventing elements from becoming awkwardly sticky.
+  - **Right Section (Current Bill)**: An always-visible cart panel taking ~380px width to balance the layout. It maintains a strict layout hierarchy where the parent container fits the viewport (`overflow-hidden`), and only the Cart Items area scales dynamically and handles internal scrolling (`overflow-y-auto` with a usable `min-height`). This guarantees cart items are always visible regardless of screen height.
 - **Interactivity (Local State)**: Uses native React state to manage cart arrays, selected categories, active payment methods, and mock successful bill creation without needing a backend.
 - **Dependencies**: Added `lucide-react` for standard UI iconography required across the POS interface.
 - **Component Strategy**: Built strictly as a monolithic page component (`PosBilling.jsx`) to avoid creating unnecessary small files, aligning with the "One responsibility per file, do not split everything into tiny files without a real reason" rule.
