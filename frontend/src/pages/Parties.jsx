@@ -233,8 +233,11 @@ const Parties = () => {
       {/* Main Table Container */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm flex flex-col min-h-0 flex-1 overflow-hidden">
         
-        {/* Search & Filters */}
-        <div className="p-4 border-b border-gray-100 flex flex-col gap-4 shrink-0">
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col min-h-0">
+          
+          {/* Search & Filters */}
+          <div className="p-4 border-b border-gray-100 flex flex-col gap-4 shrink-0">
           <div className="relative">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
               <Search className="w-4 h-4 text-gray-400" />
@@ -278,11 +281,11 @@ const Parties = () => {
               <button className="text-gray-400 hover:text-gray-700"><X className="w-3 h-3" /></button>
             </div>
           </div>
-        </div>
+          </div>
 
-        {/* Table Content */}
-        <div className="flex-1 overflow-auto custom-scrollbar">
-          <table className="w-full text-left border-collapse min-w-[1200px]">
+          {/* Table Content */}
+          <div className="w-full overflow-x-auto">
+            <table className="w-full text-left border-collapse min-w-[1200px]">
             <thead className="sticky top-0 bg-white z-10 shadow-[0_1px_0_#f3f4f6]">
               <tr>
                 <th className="py-3 px-4 w-12 border-b border-gray-100">
@@ -369,7 +372,8 @@ const Parties = () => {
                 ))
               )}
             </tbody>
-          </table>
+            </table>
+          </div>
         </div>
         
         {/* Pagination */}
